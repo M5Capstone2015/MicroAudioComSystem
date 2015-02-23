@@ -71,4 +71,13 @@ void toBitArray(int a,int* output){
 	}
 }
 
+int mappingFunction(int a){
+	int mappedOutput;
+	if (a <= 750 || a >= 1000)
+		mappedOutput = 0;
+    else
+    	mappedOutput = a - 750;
+	return mappedOutput;
+}
+
 #endif /* FREQUENCY_H_ */
