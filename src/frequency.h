@@ -46,22 +46,7 @@ void send_bit(uint32_t bit)
 		toggle_with_delay(150,14);
 	}
 }
-//works with 8000hz sampling
-//void send_bit(uint32_t bit)
-//{
-//	if((bit == 0))
-//	{
-//		toggle_with_delay(1000,3);
-//	}
-//	else if((bit == 1))
-//	{
-//		toggle_with_delay(2000,3);
-//	}
-//	else
-//	{
-//		toggle_with_delay(500,3);
-//	}
-//}
+
 
 void send_byte(uint32_t byte[])
 {
@@ -71,6 +56,19 @@ void send_byte(uint32_t byte[])
 	  {
 		send_bit(byte[i]);
 	  }
+}
+
+void toBitArray(int a,int* output){
+	if (a >= 255){
+		a = 255;
+	}
+	int i=0;
+	int tmp;
+	for (i=0;i<8;i++){
+		tmp = a % 2;
+		output[7-i] = tmp;
+		a = a/2;
+	}
 }
 
 #endif /* FREQUENCY_H_ */
